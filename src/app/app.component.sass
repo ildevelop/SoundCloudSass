@@ -107,7 +107,6 @@ body
   @include clearfix()
   margin: 0 auto
 
-
 h1
   font-size: $h1-font-size
   font-weight: $h1-font-weight
@@ -120,6 +119,7 @@ svg
   vertical-align: middle
 $link-color: #fff
 a
+  font-size: larger
   padding: 0 50px
   color: $primary-color
   text-decoration: none
@@ -134,9 +134,12 @@ $navigation-main-padding-vertical: .5rem
     display: block
 
 .container
-  height: 600px
-  background-color: $base-bgcolor
-  padding-top: 50px
-.cdk-overlay-container
-  position: relative
+  height: 800px
+  .col-lg-3
+    width: 30%
+    margin: 10px
+    //padding: 50px
+    height: 400px
+    background-color: $base-bgcolor
+
 

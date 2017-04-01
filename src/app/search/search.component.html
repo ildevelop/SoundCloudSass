@@ -1,8 +1,46 @@
-<md-input-container>
-  <input mdInput placeholder="State" [mdAutocomplete]="auto" [formControl]="stateCtrl">
-</md-input-container>
-<md-autocomplete #auto="mdAutocomplete">
-  <md-option *ngFor="let state of filteredStates | async" [value]="state">
-    {{ state }}
-  </md-option>
-</md-autocomplete>
+<div class="col-lg-3">
+<div>
+  <input placeholder="Put your track!"
+        type="text"  class="form-control"
+         id="query" ngModel  name="query"
+         [(ngModel)]="query" required>
+
+  <button (click)="searchQuery(query)">Raised button</button>
+  <!--<md-autocomplete #auto="mdAutocomplete">-->
+    <!--<md-option *ngFor="let state of filteredStates | async" [value]="state">-->
+      <!--{{ state }}-->
+    <!--</md-option>-->
+  <!--</md-autocomplete>-->
+    <div *ngFor='let track of tracks'>
+      <p>{{track['title']}}</p>
+      <p>{{track['stream_url']}}</p>
+    </div>
+  <br>
+  <a href="" class="button">
+    <i class="material-icons ">forward</i>
+  </a>
+  <br>
+  <a href="" class="button">  <i class="material-icons">view_list</i>
+  </a>
+  <a href="" class="button">  <i class="material-icons">subtitles</i>
+  </a>
+</div>
+</div>
+<div class="col-lg-3">
+
+  <div class="img-responsive">
+    <img  src="https://i1.sndcdn.com/artworks-000044094664-6dl62h-large.jpg" alt="Generic placeholder image" width="280" height="280">
+  </div>
+
+</div>
+<div class="col-lg-3">
+  <div>
+    <h3>
+      Resent Searches
+    </h3>
+    <div *ngFor='let lastQuery of queriesData'>
+      <p>{{lastQuery}}</p>
+    </div>
+  </div>
+
+</div>
