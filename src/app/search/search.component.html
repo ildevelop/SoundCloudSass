@@ -1,4 +1,4 @@
-<div class="col-lg-3">
+<div class="col-lg-4">
 <div>
   <input placeholder="Put your track!"
         type="text"  class="form-control"
@@ -11,9 +11,13 @@
       <!--{{ state }}-->
     <!--</md-option>-->
   <!--</md-autocomplete>-->
-    <div *ngFor='let track of tracks'>
-      <p>{{track['title']}}</p>
-      <p>{{track['stream_url']}}</p>
+    <div *ngFor='let track of tracks; let i=index'>
+      <div *ngIf="i<6">
+        <a  (click)="img_url=track['artwork_url']">
+          <p>{{track['title']}}</p>
+        </a>
+        <a href="{{track['stream_url']}}" (click)="func"><p>{{track['stream_url']}}</p></a>
+      </div>
     </div>
   <br>
   <a href="" class="button">
@@ -26,20 +30,21 @@
   </a>
 </div>
 </div>
-<div class="col-lg-3">
+<div class="col-lg-4">
 
   <div class="img-responsive">
-    <img  src="https://i1.sndcdn.com/artworks-000044094664-6dl62h-large.jpg" alt="Generic placeholder image" width="280" height="280">
+    <img  [src]='img_url' alt="Generic placeholder image" width="280" height="280">
   </div>
 
 </div>
-<div class="col-lg-3">
+<div class="col-lg-4">
   <div>
     <h3>
       Resent Searches
     </h3>
-    <div *ngFor='let lastQuery of queriesData'>
-      <p>{{lastQuery}}</p>
+    <div *ngFor='let lastQuery of queriesData; let i=index'>
+      <div *ngIf="i<5"><p>{{lastQuery}}</p></div>
+
     </div>
   </div>
 

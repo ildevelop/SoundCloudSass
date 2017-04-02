@@ -16,6 +16,7 @@ public query :string ;
   stateCtrl: FormControl;
   filteredStates: any;
   public tracks: any [];
+  public img_url:string = "https://i1.sndcdn.com/artworks-000095914016-008yxw-large.jpg";
 
   public queriesData : string [] ;
   constructor(public soundCloudApi: SoundCloudApiService) {
@@ -33,6 +34,7 @@ public query :string ;
         if (query !== null)
         this.queriesData.push(query);
       }
+      this.queriesData = this.queriesData.reverse();
   }
   }
 
@@ -40,6 +42,7 @@ public query :string ;
   searchQuery(query: string){
     let queries = JSON.parse(localStorage.getItem('queries'));
     this.queriesData.push(query);
+    this.queriesData = this.queriesData.reverse();
     if (queries != null && queries.length>1 ){
     queries.push(query);
     }else {
@@ -56,6 +59,7 @@ public query :string ;
   }
 
   private setMemorySearch(res: Response) {
+    this.tracks = [];
    let tracks = res.json()
     for (let track of tracks) {
       this.tracks.push(track);
