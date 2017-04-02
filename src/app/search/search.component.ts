@@ -17,7 +17,7 @@ public query :string ;
   filteredStates: any;
   public tracks: any [];
   public img_url:string = "../../assets/img/soundcloud.jpg";
-  public sound:string="https://soundcloud.com/ahmet-kilic/deep-house-summer-mix-2014-1?client_id=d652006c469530a4a7d6184b18e16c81";
+  public sound:string;
 
   public queriesData : string [] ;
   constructor(public soundCloudApi: SoundCloudApiService) {
@@ -66,13 +66,8 @@ public query :string ;
       this.tracks.push(track);
     }
   }
-  func( img: string, sounds:string){
+  public applyTrack(img: string, sound:string){
     this.img_url=img;
-    console.log(sounds);
-
-    this.sound=sounds+'?client_id=d652006c469530a4a7d6184b18e16c81';
-
-    console.log("test sound");
-    console.log(this.sound)
+    this.sound=sound+'?client_id=d652006c469530a4a7d6184b18e16c81';
   }
 }
