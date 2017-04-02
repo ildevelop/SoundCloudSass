@@ -16,7 +16,8 @@ public query :string ;
   stateCtrl: FormControl;
   filteredStates: any;
   public tracks: any [];
-  public img_url:string = "https://i1.sndcdn.com/artworks-000095914016-008yxw-large.jpg";
+  public img_url:string = "../../assets/img/soundcloud.jpg";
+  public sound:string="https://soundcloud.com/ahmet-kilic/deep-house-summer-mix-2014-1?client_id=d652006c469530a4a7d6184b18e16c81";
 
   public queriesData : string [] ;
   constructor(public soundCloudApi: SoundCloudApiService) {
@@ -60,9 +61,18 @@ public query :string ;
 
   private setMemorySearch(res: Response) {
     this.tracks = [];
-   let tracks = res.json()
+   let tracks = res.json();
     for (let track of tracks) {
       this.tracks.push(track);
     }
+  }
+  func( img: string, sounds:string){
+    this.img_url=img;
+    console.log(sounds);
+
+    this.sound=sounds+'?client_id=d652006c469530a4a7d6184b18e16c81';
+
+    console.log("test sound");
+    console.log(this.sound)
   }
 }

@@ -5,7 +5,7 @@
          id="query" ngModel  name="query"
          [(ngModel)]="query" required>
 
-  <button (click)="searchQuery(query)">Raised button</button>
+  <button (click)="searchQuery(query)">Go!</button>
   <!--<md-autocomplete #auto="mdAutocomplete">-->
     <!--<md-option *ngFor="let state of filteredStates | async" [value]="state">-->
       <!--{{ state }}-->
@@ -13,10 +13,10 @@
   <!--</md-autocomplete>-->
     <div *ngFor='let track of tracks; let i=index'>
       <div *ngIf="i<6">
-        <a  (click)="img_url=track['artwork_url']">
+        <a  (click)="func(img_url=track['artwork_url'],track['stream_url'])">
           <p>{{track['title']}}</p>
         </a>
-        <a href="{{track['stream_url']}}" (click)="func"><p>{{track['stream_url']}}</p></a>
+        <!--<a href="{{track['stream_url']}}" (click)="func"><p>{{track['stream_url']}}</p></a>-->
       </div>
     </div>
   <br>
@@ -34,11 +34,15 @@
 
   <div class="img-responsive">
     <img  [src]='img_url' alt="Generic placeholder image" width="280" height="280">
-  </div>
 
+
+    <audio controls>
+          <!--<source src="horse.mp3" type="audio/mpeg">-->
+      <source [src]='sound' type="audio/mpeg">
+    </audio>
+  </div>
 </div>
 <div class="col-lg-4">
-  <div>
     <h3>
       Resent Searches
     </h3>
@@ -46,6 +50,4 @@
       <div *ngIf="i<5"><p>{{lastQuery}}</p></div>
 
     </div>
-  </div>
-
 </div>
