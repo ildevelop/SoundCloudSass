@@ -1,4 +1,6 @@
 # SoundCloudSass
+## This exam will use the SoundCloud API to fetch data and display it on a page.
+## SoundCloud is a platform which gives users access to a library of tracks. These tracks can be embedded and played on other web pages. The SoundCloud API allows you to query the tracks. 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
